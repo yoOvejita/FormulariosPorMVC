@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = null;
+}
+@model ManejoDeForms.VistaModelos.VistaModeloCuenta
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Registro", "Cuenta")) {
+        <table>
+            <tr>
+                <td>@Html.LabelFor(modelo => modelo.cuenta.id)</td>
+                <td>@Html.DisplayTextFor(modelo => modelo.cuenta.id)
+                    @Html.HiddenFor(modelo => modelo.cuenta.id)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(modelo => modelo.cuenta.nombreUsuario)
+                </td>
+                <td>
+                    @Html.TextBoxFor(mod => mod.cuenta.nombreUsuario)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(modelo => modelo.cuenta.Password)
+                </td>
+                <td>
+                    @Html.PasswordFor(mod => mod.cuenta.Password)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(modelo => modelo.cuenta.descrpcion)
+                </td>
+                <td>
+                    @Html.TextAreaFor(mod => mod.cuenta.descrpcion)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(modelo => modelo.cuenta.genero)
+                </td>
+                <td>
+                    @Html.RadioButtonFor(modelo => modelo.cuenta.genero, "varon") <label>Varon</label>
+                    <br/>
+                    @Html.RadioButtonFor(modelo => modelo.cuenta.genero, "mujer") <label>Mujer</label>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(modelo => modelo.cuenta.Estado)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(mod => mod.cuenta.Estado)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(modelo => modelo.cuenta.lenguajes)
+                </td>
+                <td>
+                    @Html.CheckBoxListFor(modelo => modelo.cuenta.lenguajes,
+                   modelo => modelo.lenguajes,
+                   lenguaje => lenguaje.id,
+                   lenguaje => lenguaje.nombre,
+                   modelo => modelo.lenguajesSeleccionados
+                   )
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(modelo => modelo.cuenta.RolId)
+                </td>
+                <td>
+                    @Html.DropDownListFor(mod => mod.cuenta.RolId, new SelectList(Model.Roles, "Value", "Text"))
+                </td>
+            </tr>
+
+            <tr>
+                &nbsp;
+            </tr>
+            <tr>
+                <input type="submit" value="Guardar"/>
+            </tr>
+        </table>
+    }
+</body>
+</html>

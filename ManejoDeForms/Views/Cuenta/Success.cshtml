@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Success</title>
+</head>
+<body>
+    <h3>Datos registrados</h3>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>@ViewBag.cucu.id</td>
+        </tr>
+        <tr>
+            <td>Nombre de usuario</td>
+            <td>@ViewBag.cucu.nombreUsuario</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>@ViewBag.cucu.Password</td>
+        </tr>
+        <tr>
+            <td>Descripción</td>
+            <td>@ViewBag.cucu.descrpcion</td>
+        </tr>
+        <tr>
+            <td>Genero</td>
+            <td>@ViewBag.cucu.genero</td>
+        </tr>
+        <tr>
+            <td>Estado (algun estado)</td>
+            <td>@ViewBag.cucu.Estado</td>
+        </tr>
+        <tr>
+            <td>Lenguajes</td>
+            <td>@foreach (var lenguaje in ViewBag.cucu.lenguajes) {
+                @lenguaje <br />
+            }</td>
+        </tr>
+        <tr>
+            <td>Rol id</td>
+            <td>@ViewBag.cucu.RolId</td>
+        </tr>
+        
+
+    </table>
+</body>
+</html>
